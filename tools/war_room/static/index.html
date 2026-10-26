@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squad War Room • Tech Jobs Radar</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Marked para renderização de notas markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="war-room-container">
+    
+    <!-- TOP HEADER -->
+    <header class="war-room-header">
+      <div class="header-left">
+        <div class="status-indicator-badge live-pulse">
+          <span class="pulse-dot"></span>
+          <span class="live-label">WAR ROOM ATIVA</span>
+        </div>
+        <h1 class="project-title">Tech Jobs Radar <span class="highlight">• Ritos & Voz Neural</span></h1>
+      </div>
+
+      <div class="header-center">
+        <!-- BARRA DE RITOS RÁPIDOS -->
+        <div class="rites-bar">
+          <button class="rite-btn active" data-rite="planning">🗓️ Sprint Planning</button>
+          <button class="rite-btn" data-rite="daily">⚡ Daily Check-in (3m)</button>
+          <button class="rite-btn" data-rite="design_review">🏗️ Design Review (@TL)</button>
+          <button class="rite-btn" data-rite="quality_gate">🧪 Quality Gate (@QA)</button>
+          <button class="rite-btn" data-rite="sabatina">🎓 Sabatina EY (@TL)</button>
+          <button class="rite-btn" data-rite="review_star">🏆 Review XYZ/STAR (@PO)</button>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div id="api-status-badge" class="badge-status-local">
+          <span class="key-icon">🔑</span>
+          <span id="api-status-text">Modo Local (Offline)</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN 3-COLUMN WORKSPACE -->
+    <main class="war-room-workspace">
+      
+      <!-- LEFT COLUMN: SQUAD CALL ROOM -->
+      <aside class="panel-squad">
+        <div class="panel-header">
+          <h3>🎙️ Sala de Voz & Agentes</h3>
+          <span class="badge-zero-tokens">0 Tokens de Áudio</span>
+        </div>
+
+        <div class="agents-grid">
+          
+          <!-- @SM CARD -->
+          <div class="agent-card" id="agent-card-sm" data-agent="sm">
+            <div class="agent-avatar-wrap">
+              <span class="agent-avatar">📋</span>
+              <div class="soundwave">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="agent-info">
+              <div class="agent-name-row">
+                <h4>Francisca (@SM)</h4>
+                <span class="agent-badge sm-badge">Scrum Master</span>
+              </div>
+              <p class="agent-role">DataOps Flow Guardian & WIP=1</p>
+              <div class="agent-model-tag">
+                <span class="tag-model">Gemini 3.5 Flash-Lite</span>
+                <span class="tag-thinking thinking-low">Thinking: LOW</span>
+              </div>
+              <div class="agent-voice-tag">
+                <span>🗣️ Voz Neural Gratuita (Francisca)</span>
+              </div>
+              <button class="btn-studio-benchmark" data-audio="/benchmark_audio/sm_sprint_planning.mp3" data-agent="sm">
+                🎧 Ouvir Discurso Estúdio Gemini (Kore)
+              </button>
+            </div>
+          </div>
+
+          <!-- @TL CARD -->
+          <div class="agent-card" id="agent-card-tl" data-agent="tl">
+            <div class="agent-avatar-wrap">
+              <span class="agent-avatar">👨‍💻</span>
+              <div class="soundwave">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="agent-info">
+              <div class="agent-name-row">
+                <h4>Antonio (@TL)</h4>
+                <span class="agent-badge tl-badge">Tech Lead EY</span>
+              </div>
+              <p class="agent-role">Senior/Staff • Big 4 DNA & Socrático</p>
+              <div class="agent-model-tag">
+                <span class="tag-model">Gemini 3.5 Flash</span>
+                <span class="tag-thinking thinking-high">Thinking: HIGH</span>
+              </div>
+              <div class="agent-voice-tag">
+                <span>🗣️ Voz Neural Gratuita (Antonio)</span>
+              </div>
+              <button class="btn-studio-benchmark" data-audio="/benchmark_audio/tl_design_review.mp3" data-agent="tl">
+                🎧 Ouvir Discurso Estúdio Gemini (Charon)
+              </button>
+            </div>
+          </div>
+
+          <!-- @QA CARD -->
+          <div class="agent-card" id="agent-card-qa" data-agent="qa">
+            <div class="agent-avatar-wrap">
+              <span class="agent-avatar">🧪</span>
+              <div class="soundwave">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="agent-info">
+              <div class="agent-name-row">
+                <h4>Fabio (@QA)</h4>
+                <span class="agent-badge qa-badge">Data QA</span>
+              </div>
+              <p class="agent-role">Adversarial Testing & Shift-Left</p>
+              <div class="agent-model-tag">
+                <span class="tag-model">Gemini 3.5 Flash</span>
+                <span class="tag-thinking thinking-high">Thinking: HIGH</span>
+              </div>
+              <div class="agent-voice-tag">
+                <span>🗣️ Voz Neural Gratuita (Fabio / Antonio)</span>
+              </div>
+              <button class="btn-studio-benchmark" data-audio="/benchmark_audio/qa_quality_gate.mp3" data-agent="qa">
+                🎧 Ouvir Discurso Estúdio Gemini (Fenrir)
+              </button>
+            </div>
+          </div>
+
+          <!-- @PO CARD -->
+          <div class="agent-card" id="agent-card-po" data-agent="po">
+            <div class="agent-avatar-wrap">
+              <span class="agent-avatar">🎯</span>
+              <div class="soundwave">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="agent-info">
+              <div class="agent-name-row">
+                <h4>Thalita (@PO)</h4>
+                <span class="agent-badge po-badge">Product Owner</span>
+              </div>
+              <p class="agent-role">So What Test & Carreira EY STAR</p>
+              <div class="agent-model-tag">
+                <span class="tag-model">Gemini 3.5 Flash</span>
+                <span class="tag-thinking thinking-med">Thinking: MED/HIGH</span>
+              </div>
+              <div class="agent-voice-tag">
+                <span>🗣️ Voz Neural Gratuita (Thalita Multilingual)</span>
+              </div>
+              <button class="btn-studio-benchmark" data-audio="/benchmark_audio/po_sprint_review.mp3" data-agent="po">
+                🎧 Ouvir Discurso Estúdio Gemini (Aoede)
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- QUICK AUDIT BOX -->
+        <div class="rule-box">
+          <div class="rule-title">⚡ Regra de Ouro da Squad</div>
+          <p><strong>Lei de Little & WIP = 1:</strong> Foco exclusivo em 1 task por vez. Timebox estrito de até 120 minutos por incremento (Ciclo de Kolb).</p>
+        </div>
+      </aside>
+
+      <!-- CENTER COLUMN: LIVE TRANSCRIPTION & MEETING NOTES -->
+      <section class="panel-conversation">
+        <div class="panel-header conversation-header">
+          <div class="current-rite-display">
+            <span class="rite-indicator-label">RITO ATIVO:</span>
+            <span id="active-rite-name" class="active-rite-highlight">🗓️ Sprint Planning</span>
+          </div>
+          <div class="conversation-actions">
+            <button id="btn-clear-chat" class="btn-ghost" title="Limpar histórico">🧹 Limpar</button>
+            <button id="btn-bargein" class="btn-bargein" title="Interromper fala imediatamente">
+              ⏹️ Calar Agente (Barge-in)
+            </button>
+          </div>
+        </div>
+
+        <div id="messages-container" class="messages-container">
+          <!-- As mensagens serão inseridas aqui dinamicamente -->
+        </div>
+
+        <div id="live-transcription-preview" class="live-transcription-preview hidden">
+          <span class="mic-pulse-icon">🎤</span>
+          <span id="live-transcription-text" class="live-text">Ouvindo... fale em português</span>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: OBSIDIAN SPRINT ATIVA LIVE BOARD -->
+      <aside class="panel-board">
+        <div class="panel-header">
+          <div class="board-title-group">
+            <h3>📋 Sprint Ativa</h3>
+            <span class="badge-obsidian">Obsidian Live Sync</span>
+          </div>
+          <button id="btn-refresh-board" class="btn-icon" title="Recarregar do Obsidian">🔄</button>
+        </div>
+
+        <div class="sprint-meta-card">
+          <div class="sprint-meta-header">
+            <span class="sprint-tag">Sprint 1 • Fundação & Bronze</span>
+            <span class="wip-pill">WIP = 1</span>
+          </div>
+          <p class="sprint-goal-text">Setup Monorepo Medalhão com uv + Ruff, Ingestão SerpApi com Pydantic v2 estrito e Notificador Telegram.</p>
+        </div>
+
+        <div class="board-tasks-list" id="board-tasks-container">
+          <!-- As tarefas do Sprint Ativa.md serão renderizadas aqui -->
+          <div class="task-skeleton">Carregando quadro do Obsidian...</div>
+        </div>
+
+        <div class="board-footer">
+          <button id="btn-view-logs" class="btn-outline-small">📝 Ver Log de Ritos & STAR</button>
+        </div>
+      </aside>
+
+    </main>
+
+    <!-- BOTTOM CALL CONTROL DOCK -->
+    <footer class="call-control-dock">
+      
+      <!-- INTERLOCUTOR SELECTOR -->
+      <div class="interlocutor-selector">
+        <label for="speaker-select">Falar com:</label>
+        <select id="speaker-select">
+          <option value="auto">🤖 Toda a Squad (Auto)</option>
+          <option value="sm">📋 Francisca (@SM)</option>
+          <option value="tl">👨‍💻 Antonio (@TL)</option>
+          <option value="qa">🧪 Fabio (@QA)</option>
+          <option value="po">🎯 Thalita (@PO)</option>
+        </select>
+      </div>
+
+      <!-- PUSH-TO-TALK BUTTON (STT NATURA 0 TOKENS) -->
+      <div class="ptt-container">
+        <button id="btn-mic" class="btn-mic" title="Clique ou segure a barra de espaço para falar">
+          <span class="mic-icon">🎙️</span>
+          <span id="mic-label">Falar (Espaço ou Clique)</span>
+        </button>
+      </div>
+
+      <!-- TEXT INPUT FALLBACK -->
+      <div class="input-text-container">
+        <input type="text" id="chat-input" placeholder="Digite uma pergunta ou resposta para a Squad (ou fale pelo microfone)..." autocomplete="off">
+        <button id="btn-send" class="btn-send">Enviar</button>
+      </div>
+
+    </footer>
+
+    <!-- MODAL DE LOGS DO OBSIDIAN -->
+    <div id="logs-modal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>📝 Log de Ritos & Banco de Cases STAR</h3>
+          <button id="btn-close-modal" class="modal-close">&times;</button>
+        </div>
+        <div id="modal-logs-content" class="modal-body markdown-rendered">
+          Carregando registros...
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Audio Element Invisível para Reprodução com Barge-in -->
+  <audio id="agent-audio-player" preload="auto"></audio>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

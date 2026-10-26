@@ -1,0 +1,71 @@
+# Ambientes Virtuais e Runtimes
+.venv/
+venv/
+ENV/
+env/
+.python-version
+
+# Segredos e Variáveis de Ambiente (CRÍTICO: Nunca comitar!)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Caches de Compilação e Interpretador Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Caches de Ferramentas de Teste, Qualidade e Lint (uv, Ruff, pytest)
+.uv/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.hypothesis/
+
+# Dados Locais do Lakehouse (Arquivos temporários e dados brutos locais)
+data/bronze/*
+!data/bronze/.gitkeep
+data/silver/*
+!data/silver/.gitkeep
+data/gold/*
+!data/gold/.gitkeep
+data/quarantine/*
+!data/quarantine/.gitkeep
+*.db
+*.sqlite3
+*.parquet
+*.jsonl
+
+# Cache de Áudio e Logs do Squad War Room
+tools/war_room/audio_cache/*.mp3
+!tools/war_room/audio_cache/.gitkeep
+tools/war_room/benchmark_audio/
+*.log
+
+# Arquivos de IDE e Sistema Operacional
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
